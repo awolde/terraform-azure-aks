@@ -24,7 +24,7 @@ provider "azurerm" {
 }
 
 module "orgnamedev" {
-  source      = "../"
+  source      = "../modules/create-envs"
   location    = "eastus"
   admin_email = "c4692bfd-7566-zzzz-yyyyy-xxxxxxx"
   prefix      = "orgname"
