@@ -30,24 +30,6 @@ resource "azurerm_subnet" "pls" {
   private_endpoint_network_policies_enabled     = false
 }
 
-resource "azurerm_network_interface" "default" {
-  name                = "nic-vm-${var.prefix}-${var.env}"
-  location            = var.location
-  resource_group_name = var.resource_group_name
-
-  ip_configuration {
-    name                          = "internal"
-    subnet_id                     = azurerm_subnet.infra.id
-    private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.vm.id
-  }
-  tags = {
-    Env          = "",
-    Appname      = "tfo",
-    AppOwner     = "Fname Lname",
-    CreationDate = ""
-  }
-}
 #
 resource "azurerm_network_security_group" "default" {
   name                = "nsg-${var.prefix}-${var.env}-vm"
