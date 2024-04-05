@@ -30,21 +30,6 @@ resource "azurerm_subnet" "pls" {
   private_endpoint_network_policies_enabled     = false
 }
 
-//add test vm
-resource "azurerm_public_ip" "vm" {
-  name                = "vm-public-ip-${var.prefix}-${var.env}"
-  sku                 = "Standard"
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  allocation_method   = "Static"
-  tags = {
-    Env          = "",
-    Appname      = "tfo",
-    AppOwner     = "Fname Lname",
-    CreationDate = ""
-  }
-}
-
 resource "azurerm_network_interface" "default" {
   name                = "nic-vm-${var.prefix}-${var.env}"
   location            = var.location
