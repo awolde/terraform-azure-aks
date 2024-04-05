@@ -95,7 +95,7 @@ resource "azurerm_user_assigned_identity" "aks" {
   location            = var.location
   resource_group_name = var.resource_group_name
 }
-
+/*
 //give the user assigned identity access to the vnet to create private link services
 resource "azurerm_role_assignment" "ntk" {
   scope                = azurerm_subnet.infra.id
@@ -115,6 +115,7 @@ resource "azurerm_role_assignment" "acr" {
   role_definition_name = "AcrPull"
   principal_id         = azurerm_user_assigned_identity.aks.principal_id
 }
+*/
 
 //add aks cluster
 resource "azurerm_kubernetes_cluster" "default" {
