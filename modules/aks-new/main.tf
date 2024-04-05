@@ -54,11 +54,7 @@ resource "azurerm_network_security_group" "default" {
     CreationDate = ""
   }
 }
-#
-resource "azurerm_network_interface_security_group_association" "default" {
-  network_interface_id      = azurerm_network_interface.default.id
-  network_security_group_id = azurerm_network_security_group.default.id
-}
+
 
 //add container registry
 resource "azurerm_container_registry" "default" {
